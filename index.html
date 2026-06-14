@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <title>Максим & Анастасия | Свадебное приглашение</title>
+    <!-- Шрифты: элегантный Playfair Display и чистый Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (бесплатные иконки) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: #fef7f0;   /* нежный кремовый фон */
+            font-family: 'Montserrat', sans-serif;
+            color: #3e2c2a;
+            line-height: 1.45;
+        }
+
+        /* Основной контейнер — центрированный, максимальная ширина для планшетов/телефонов */
+        .wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 18px 50px;
+        }
+
+        /* карточки-секции как в примере: мягкие тени, скругления */
+        .card {
+            background: #ffffff;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02);
+            padding: 28px 24px;
+            margin-bottom: 28px;
+            transition: transform 0.2s ease;
+        }
+
+        /* заголовки и тексты в стиле романтик */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            font-weight: 800;
+            text-align: center;
+            color: #b???;
+            color: #b45f4b;
+            letter-spacing: -0.3px;
+            margin-bottom: 8px;
+        }
+
+        .couple-sub {
+            text-align: center;
+            font-size: 15px;
+            font-weight: 400;
+            color: #9b7c6b;
+            border-top: 1px solid #f0e2d8;
+            display: inline-block;
+            width: auto;
+            margin: 0 auto 12px;
+            padding-top: 10px;
+            letter-spacing: 0.6px;
+        }
+
+        .invite-text {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 400;
+            color: #5e3e36;
+            margin-top: 12px;
+            line-height: 1.5;
+        }
+
+        .invite-text i {
+            color: #c28a72;
+            margin: 0 4px;
+        }
+
+        /* секция места / ресторан */
+        .place-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #b45f4b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .place-title i {
+            font-size: 26px;
+        }
+
+        .resto-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c2c2c;
+            margin-bottom: 6px;
+        }
+
+        .address {
+            font-size: 15px;
+            color: #6f5548;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f5ede6;
+            padding: 10px 20px;
+            border-radius: 40px;
+            color: #b45f4b;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s;
+            margin-top: 5px;
+        }
+
+        .map-link i {
+            font-size: 14px;
+        }
+
+        /* дресс-код */
+        .dresscode {
+            background: #fdf6f0;
+            border-radius: 28px;
+            padding: 18px 20px;
+            margin-top: 10px;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 14px;
+            margin: 18px 0 8px;
+            flex-wrap: wrap;
+        }
+
+        .color-badge {
+            width: 48px;
+            height: 48px;
+            border-radius: 60px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+        }
+
+        /* таймер (обратный отсчет) */
+        .timer-section {
+            text-align: center;
+            margin: 15px 0 10px;
+        }
+
+        .timer-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .timer-block {
+            background: #fef4ec;
+            border-radius: 28px;
+            padding: 12px 6px;
+            flex: 1;
+            text-align: center;
+            box-shadow: inset 0 0 0 1px rgba(180,95,75,0.1), 0 5px 12px rgba(0,0,0,0.02);
+        }
+
+        .timer-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 800;
+            color: #b45f4b;
+            line-height: 1;
+        }
+
+        .timer-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9b7c6b;
+            font-weight: 500;
+        }
+
+        /* программа дня */
+        .schedule-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+
+        .schedule-time {
+            font-weight: 700;
+            font-size: 18px;
+            color: #b45f4b;
+            min-width: 70px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .schedule-desc p {
+            font-weight: 500;
+            color: #3e2c2a;
+            margin-bottom: 4px;
+        }
+
+        .schedule-desc small {
+            color: #8f6e5d;
+            font-size: 13px;
+        }
+
+        /* анкета / форма */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            color: #5e3e36;
+            font-size: 15px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 28px;
+            border: 1px solid #eedbcb;
+            background: #fffefc;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #b45f4b;
+            box-shadow: 0 0 0 3px rgba(180,95,75,0.1);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        button {
+            background: #b45f4b;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            width: 100%;
+            border-radius: 48px;
+            font-weight: 700;
+            font-size: 17px;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 10px rgba(180,95,75,0.2);
+            margin-top: 10px;
+        }
+
+        button i {
+            margin-right: 8px;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        .success-msg {
+            background: #e0f2e9;
+            color: #2c6e4e;
+            padding: 12px;
+            border-radius: 60px;
+            text-align: center;
+            margin-top: 18px;
+            font-size: 14px;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #c6aa9a;
+            margin-top: 20px;
+            padding: 20px 0 10px;
+            border-top: 1px solid #f0e2d8;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #f0e2d8, transparent);
+        }
+
+        @media (max-width: 480px) {
+            .wrapper {
+                padding: 14px 16px 40px;
+            }
+            .card {
+                padding: 24px 20px;
+            }
+            h1 {
+                font-size: 36px;
+            }
+            .timer-number {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!-- Главный заголовок: имена -->
+    <div class="card" style="text-align: center; padding-bottom: 20px;">
+        <h1>МАКСИМ & АНАСТАСИЯ</h1>
+        <div class="couple-sub">наша история</div>
+        <div class="invite-text">
+            <i class="fas fa-heart" style="color: #c28a72; font-size: 12px;"></i> 
+            Дорогие, мы приглашаем вас разделить с нами самое важное «да» в нашей жизни — день нашей свадьбы
+            <i class="fas fa-heart" style="color: #c28a72; font-size: 12px;"></i>
+        </div>
+    </div>
+
+    <!-- Место проведения -->
+    <div class="card">
+        <div class="place-title">
+            <i class="fas fa-map-marker-alt"></i> <span>Место проведения</span>
+        </div>
+        <div class="resto-name">РЕСТОРАН</div>
+        <div class="resto-name" style="font-size: 26px; font-family: 'Playfair Display';">Maison La Prairie</div>
+        <div class="address">
+            <i class="fas fa-location-dot" style="margin-right: 6px;"></i> Вересковская, 12<br>
+            Особая атмосфера и теплота для наших гостей
+        </div>
+        <a href="https://maps.apple.com/?q=Вересковская,12" class="map-link" target="_blank">
+            <i class="fas fa-directions"></i> Построить маршрут
+        </a>
+        <div class="invite-text" style="font-size: 14px; margin-top: 16px;">
+            Мы выбрали это место не случайно — оно наполнено особенной атмосферой и станет частью наших самых тёплых воспоминаний
+        </div>
+    </div>
+
+    <!-- Дресс-код + палитра как на примере (цвета свадьбы) -->
+    <div class="card">
+        <div class="place-title">
+            <i class="fas fa-tshirt"></i> <span>Дресс-код</span>
+        </div>
+        <div class="dresscode">
+            <p style="margin-bottom: 10px;">Дорогие, мы очень старались сделать этот день особенным и красивым. Будем рады, если вы поддержите атмосферу, выбрав наряд в цветах нашей свадьбы:</p>
+            <div class="color-palette">
+                <div class="color-badge" style="background: #D9C5B2;"></div>
+                <div class="color-badge" style="background: #B45F4B;"></div>
+                <div class="color-badge" style="background: #F5E1CE;"></div>
+                <div class="color-badge" style="background: #7A5A4B;"></div>
+                <div class="color-badge" style="background: #EBD9C6;"></div>
+            </div>
+            <p style="font-size: 13px; margin-top: 10px;">? Элегантные оттенки бежевого, терракоты и шампань ?</p>
+        </div>
+    </div>
+
+    <!-- Обратный отсчет до 19.09.2026 -->
+    <div class="card">
+        <div class="place-title">
+            <i class="far fa-clock"></i> <span>Совсем скоро</span>
+        </div>
+        <div class="timer-section">
+            <div class="timer-grid">
+                <div class="timer-block"><div class="timer-number" id="days">00</div><div class="timer-label">Дней</div></div>
+                <div class="timer-block"><div class="timer-number" id="hours">00</div><div class="timer-label">Часов</div></div>
+                <div class="timer-block"><div class="timer-number" id="minutes">00</div><div class="timer-label">Минут</div></div>
+                <div class="timer-block"><div class="timer-number" id="seconds">00</div><div class="timer-label">Секунд</div></div>
+            </div>
+            <div style="margin-top: 16px; font-style: italic; font-size: 14px;">приятный вечер с нами</div>
+        </div>
+    </div>
+
+    <!-- Программа дня -->
+    <div class="card">
+        <div class="place-title">
+            <i class="fas fa-calendar-alt"></i> <span>Программа дня</span>
+        </div>
+        <div class="schedule-item">
+            <div class="schedule-time">15:00</div>
+            <div class="schedule-desc"><p>Сбор гостей</p><small>Орган ЗАГС №1, Октябрьский проспект, 3г</small></div>
+        </div>
+        <div class="schedule-item">
+            <div class="schedule-time">15:30</div>
+            <div class="schedule-desc"><p>Торжественная церемония</p><small>Регистрация брака</small></div>
+        </div>
+        <div class="schedule-item">
+            <div class="schedule-time">16:30</div>
+            <div class="schedule-desc"><p>Welcome & фуршет</p><small>Ресторан Maison La Prairie, Вересковская, 12</small></div>
+        </div>
+        <div class="schedule-item">
+            <div class="schedule-time">18:00</div>
+            <div class="schedule-desc"><p>Торжественный ужин и танцы</p><small>до позднего вечера</small></div>
+        </div>
+        <hr>
+        <div style="text-align: center; font-size: 14px; color: #b45f4b;">* сопровождение * спирт * свобода - 10%</div>
+    </div>
+
+    <!-- АНКЕТА (сохранение в Excel / CSV) -->
+    <div class="card">
+        <div class="place-title">
+            <i class="fas fa-envelope-open-text"></i> <span>Анкета гостя</span>
+        </div>
+        <p style="margin-bottom: 18px; font-size: 15px;">Ответьте, пожалуйста, на вопросы до <strong>1 июня 2026</strong>, это поможет нам учесть все пожелания в организации.</p>
+        
+        <form id="weddingForm">
+            <div class="form-group">
+                <label><i class="far fa-user"></i> Ваше имя и фамилия</label>
+                <input type="text" id="guestName" placeholder="Например: Екатерина Смирнова" required>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-calendar-check"></i> Присутствие</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="attendance" value="Приду с радостью" required> Приду с радостью</label>
+                    <label><input type="radio" name="attendance" value="К сожалению, не смогу"> К сожалению, не смогу</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-users"></i> Количество гостей (включая вас)</label>
+                <select id="guestsCount">
+                    <option value="1">1 человек</option>
+                    <option value="2">2 человека</option>
+                    <option value="3">3 человека</option>
+                    <option value="4">4 человека</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-utensils"></i> Пожелания по питанию / аллергии</label>
+                <textarea rows="2" id="preferences" placeholder="Напишите, если есть аллергии или особенности питания..."></textarea>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-music"></i> Музыкальные пожелания (песня для нас)</label>
+                <input type="text" id="songWish" placeholder="Ваша любимая мелодия или трек для вечера">
+            </div>
+            <button type="submit" id="submitBtn"><i class="fas fa-save"></i> Отправить ответ</button>
+            <div id="successMessage" class="success-msg">
+                <i class="fas fa-check-circle"></i> Спасибо! Ваш ответ сохранён. Скачайте данные в Excel для организатора.
+            </div>
+        </form>
+        <div style="margin-top: 18px; text-align: center;">
+            <button id="exportToExcelBtn" style="background: #6f8f7a; box-shadow: none; width: auto; padding: 10px 20px; font-size: 14px;"><i class="fas fa-file-excel"></i> Скачать все ответы (Excel)</button>
+        </div>
+        <p style="font-size: 12px; margin-top: 15px; text-align: center; color: #aa8c7a;">Данные сохраняются локально и могут быть выгружены в CSV / Excel</p>
+    </div>
+
+    <footer>
+        <i class="fas fa-heart" style="color: #c28a72;"></i> сделано с любовью для Максима и Анастасии <i class="fas fa-heart" style="color: #c28a72;"></i>
+    </footer>
+</div>
+
+<script>
+    // ---- ОБРАТНЫЙ ОТСЧЕТ ДО 19 СЕНТЯБРЯ 2026 ГОДА ----
+    function updateCountdown() {
+        const weddingDate = new Date(2026, 8, 19, 15, 0, 0); // 19 сентября 2026, 15:00
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+            document.getElementById('days').innerText = '00';
+            document.getElementById('hours').innerText = '00';
+            document.getElementById('minutes').innerText = '00';
+            document.getElementById('seconds').innerText = '00';
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (86400000)) / (3600000));
+        const minutes = Math.floor((distance % 3600000) / 60000);
+        const seconds = Math.floor((distance % 60000) / 1000);
+
+        document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+        document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+        document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+        document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // ---- РАБОТА С ФОРМОЙ И ЭКСПОРТОМ В EXCEL (CSV) ----
+    // Ключ для хранения в localStorage всех ответов, чтобы можно было накопить и выгрузить
+    let guestbook = [];
+
+    // Загружаем уже сохраненные ответы из localStorage при инициализации
+    function loadStoredData() {
+        const stored = localStorage.getItem('wedding_guests_data');
+        if (stored) {
+            try {
+                guestbook = JSON.parse(stored);
+            } catch(e) { guestbook = []; }
+        } else {
+            // Для демонстрации можно добавить тестовый пример, если пусто
+            if(guestbook.length === 0){
+                // не добавляем фиктивных, но можно оставить
+            }
+        }
+    }
+
+    function saveToLocalStorage() {
+        localStorage.setItem('wedding_guests_data', JSON.stringify(guestbook));
+    }
+
+    // Добавление нового ответа из формы
+    function addResponseFromForm() {
+        const name = document.getElementById('guestName').value.trim();
+        const attendanceElem = document.querySelector('input[name="attendance"]:checked');
+        const guestsCount = document.getElementById('guestsCount').value;
+        const preferences = document.getElementById('preferences').value.trim();
+        const songWish = document.getElementById('songWish').value.trim();
+
+        if (!name) {
+            alert("Пожалуйста, укажите ваше имя");
+            return false;
+        }
+        if (!attendanceElem) {
+            alert("Выберите, сможете ли вы присутствовать");
+            return false;
+        }
+        const attendance = attendanceElem.value;
+
+        const newEntry = {
+            timestamp: new Date().toLocaleString(),
+            fullName: name,
+            attendance: attendance,
+            guestsNumber: guestsCount,
+            dietPreferences: preferences,
+            musicWish: songWish
+        };
+        guestbook.push(newEntry);
+        saveToLocalStorage();
+
+        // Показать сообщение об успехе
+        const successDiv = document.getElementById('successMessage');
+        successDiv.style.display = 'block';
+        setTimeout(() => {
+            successDiv.style.display = 'none';
+        }, 3500);
+
+        // Очистить форму (по желанию оставляем имя, но сбросим ради удобства)
+        document.getElementById('guestName').value = '';
+        const radios = document.querySelectorAll('input[name="attendance"]');
+        radios.forEach(r => r.checked = false);
+        document.getElementById('guestsCount').value = '1';
+        document.getElementById('preferences').value = '';
+        document.getElementById('songWish').value = '';
+        
+        return true;
+    }
+
+    // Функция экспорта данных в CSV / Excel (совместимо с Microsoft Excel)
+    function exportToExcel() {
+        if (!guestbook.length) {
+            alert("Пока нет заполненных анкет. Добавьте хотя бы один ответ.");
+            return;
+        }
+        // Заголовки столбцов на русском (для удобства)
+        const headers = ['Дата и время', 'Имя гостя', 'Присутствие', 'Количество гостей', 'Пожелания/аллергии', 'Музыкальный запрос'];
+        const rows = guestbook.map(entry => [
+            entry.timestamp,
+            entry.fullName,
+            entry.attendance,
+            entry.guestsNumber,
+            entry.dietPreferences || '-',
+            entry.musicWish || '-'
+        ]);
+        
+        // Формируем содержимое CSV: экранируем кавычки, разделитель ";"
+        let csvContent = headers.join(';') + '\n';
+        rows.forEach(row => {
+            const escapedRow = row.map(cell => {
+                if (typeof cell === 'string' && (cell.includes(';') || cell.includes('"'))) {
+                    return '"' + cell.replace(/"/g, '""') + '"';
+                }
+                return cell;
+            }).join(';');
+            csvContent += escapedRow + '\n';
+        });
+
+        // Создаем BOM для корректного отображения кириллицы в Excel
+        const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        const url = URL.createObjectURL(blob);
+        link.href = url;
+        link.setAttribute('download', 'wedding_guests_maxim_anastasia.csv'); // при открытии в Excel - отлично конвертируется
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    }
+
+    // Обработка отправки формы
+    document.getElementById('weddingForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        addResponseFromForm();
+    });
+
+    // Кнопка экспорта в Excel (CSV)
+    document.getElementById('exportToExcelBtn').addEventListener('click', () => {
+        exportToExcel();
+    });
+
+    // Инициализация localStorage и загрузка существующих ответов
+    loadStoredData();
+
+    // Дополнительно: добавим пример заполнения, чтобы продемонстрировать возможность выгрузки (не обязательно, но для удобства)
+    // Если база данных совсем пустая и вы хотите добавить тестовый коммент, но лучше без авто-демо.
+    // Но добавим демо-запись только для примера, если в localStorage ничего нет и массив пуст (чтобы показать функционал экспорта).
+    if (guestbook.length === 0 && !localStorage.getItem('wedding_guests_data')) {
+        // Ничего не добавляем автоматически, чтобы не мешать пользователю — пусть первый ответ создаст гости.
+        // Но для того, чтобы кнопка экспорта не была бесполезна, можно создать одно тестовое уведомление? Не будем навязчивы.
+        // Лучше пусть заполняют сами.
+    }
+    // Убедимся, что если нажать экспорт при пустом списке — будет предупреждение.
+</script>
+</body>
+</html>
