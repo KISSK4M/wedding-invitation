@@ -23,7 +23,6 @@ window.openEnvelope = function() {
 
 
 // ── GALLERY ────────────────────────────────────────────────
-// Подписи к фото — замените на свои
 const CAPTIONS = [
   'Наша первая встреча',
   'Лето, которое изменило всё',
@@ -42,7 +41,6 @@ function initGallery() {
   galTotal = track.children.length;
   updateGallery();
 
-  // Свайп на телефоне
   const slider = document.getElementById('gallery-slider');
   slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
   slider.addEventListener('touchend', e => {
@@ -68,7 +66,7 @@ function updateGallery() {
   if (!track) return;
   track.style.transform = `translateX(-${galIdx * 100}%)`;
   dots.forEach((d, i) => d.classList.toggle('active', i === galIdx));
-  if (cap && CAPTIONS[galIdx]) cap.textContent = CAPTIONS[galIdx];
+  if (cap && CAPTIONS[galIdx] !== undefined) cap.textContent = CAPTIONS[galIdx];
 }
 
 document.addEventListener('DOMContentLoaded', initGallery);
@@ -90,9 +88,9 @@ function updateCountdown() {
   const mins  = Math.floor((diff % 3600000) / 60000);
   const secs  = Math.floor((diff % 60000) / 1000);
   document.getElementById('cd-days').textContent  = days;
-  document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
-  document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
-  document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('cd-mins').textContent  = String(mins).padStart(2, '0');
+  document.getElementById('cd-secs').textContent  = String(secs).padStart(2, '0');
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
@@ -107,14 +105,18 @@ window.changeCount = function(delta) {
 
 
 // ── FORM SUBMIT ────────────────────────────────────────────
+// Замените на ссылку вашего Google Apps Script
 const SCRIPT_URL = 'ВСТАВЬТЕ_ССЫЛКУ_GOOGLE_APPS_SCRIPT_СЮДА';
 
 window.submitForm = async function() {
   const name   = document.getElementById('f-name').value.trim();
   const phone  = document.getElementById('f-phone').value.trim();
   const attend = document.querySelector('input[name="attend"]:checked');
-  const food   = document.getElementById('f-food').value.trim();
   const wish   = document.getElementById('f-wish').value.trim();
+
+  // Собираем выбранный алкоголь
+  const alcoholBoxes = document.querySelectorAll('input[name="alcohol"]:checked');
+  const alcohol = Array.from(alcoholBoxes).map(cb => cb.value).join(', ') || 'не указано';
 
   if (!name)   { alert('Пожалуйста, введите ваше имя'); return; }
   if (!attend) { alert('Пожалуйста, выберите, придёте ли вы'); return; }
@@ -123,25 +125,78 @@ window.submitForm = async function() {
   btn.disabled = true;
   btn.textContent = 'Отправляем...';
 
-  const payload = { name, phone, attend: attend.value,
-    guests: guestCount, food, wish,
-    timestamp: new Date().toLocaleString('ru-RU') };
+  const payload = {
+    name,
+    phone,
+    attend: attend.value,
+    guests: guestCount,
+    alcohol,
+    wish,
+    timestamp: new Date().toLocaleString('ru-RU'),
+  };
 
   if (SCRIPT_URL === 'ВСТАВЬТЕ_ССЫЛКУ_GOOGLE_APPS_SCRIPT_СЮДА') {
-    console.log('Тест:', payload); showSuccess(); return;
-  }
-  try {
-    await fetch(SCRIPT_URL, { method:'POST', mode:'no-cors',
-      headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+    console.log('Тест — данные формы:', payload);
     showSuccess();
-  } catch(err) {
-    alert('Ошибка. Попробуйте ещё раз.');
+    return;
+  }
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    showSuccess();
+  } catch (err) {
+    console.error(err);
+    alert('Ошибка отправки. Попробуйте ещё раз.');
     btn.disabled = false;
     btn.textContent = 'Отправить анкету';
   }
 };
 
+
+// ── SUCCESS MODAL ──────────────────────────────────────────
 function showSuccess() {
-  document.getElementById('rsvp-form').style.display = 'none';
-  document.getElementById('success-msg').style.display = 'block';
+  // Скрываем форму
+  const form = document.getElementById('rsvp-form');
+  if (form) form.style.display = 'none';
+
+  // Показываем красивое модальное окно
+  const overlay = document.getElementById('success-overlay');
+  overlay.classList.add('show');
+
+  // Блокируем скролл фона
+  document.body.style.overflow = 'hidden';
 }
+
+window.closeSuccess = function() {
+  const overlay = document.getElementById('success-overlay');
+  overlay.classList.remove('show');
+  document.body.style.overflow = '';
+
+  // Показываем сообщение под формой
+  const rsvpSection = document.querySelector('.slide-rsvp');
+  if (rsvpSection) {
+    const msg = document.createElement('div');
+    msg.style.cssText = 'text-align:center;padding:32px 0;';
+    msg.innerHTML = `
+      <div style="font-size:24px;color:#8C7B5E;margin-bottom:12px;">✦</div>
+      <p style="font-family:Cormorant Garamond,serif;font-size:22px;font-style:italic;color:#1A1A1A;margin-bottom:8px;">Спасибо!</p>
+      <p style="font-size:13px;font-weight:300;color:#5A5550;line-height:1.7;">Ваш ответ принят.<br>Ждём вас 19 сентября!</p>
+    `;
+    rsvpSection.appendChild(msg);
+  }
+};
+
+// Закрытие по клику на фон
+document.addEventListener('DOMContentLoaded', () => {
+  const overlay = document.getElementById('success-overlay');
+  if (overlay) {
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) window.closeSuccess();
+    });
+  }
+});

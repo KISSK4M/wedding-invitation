@@ -6,30 +6,27 @@
   <title>Максим & Анастасия — 19.09.2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ====== ENVELOPE SCREEN ====== -->
+  <!-- ====== КОНВЕРТ ====== -->
   <div class="envelope-screen" id="envelope-screen">
     <div class="env-stars">
-      <span class="star s1">✦</span>
-      <span class="star s2">✦</span>
-      <span class="star s3">✦</span>
-      <span class="star s4">✦</span>
-      <span class="star s5">✦</span>
-      <span class="star s6">✦</span>
+      <span class="star s1">✦</span><span class="star s2">✦</span>
+      <span class="star s3">✦</span><span class="star s4">✦</span>
+      <span class="star s5">✦</span><span class="star s6">✦</span>
     </div>
     <p class="env-label">приглашение на свадьбу</p>
     <p class="env-names-top">Максим & Анастасия</p>
-    <div class="envelope-wrap" id="envelope-wrap">
+    <div class="envelope-wrap">
       <div class="envelope" id="envelope">
-        <div class="env-flap" id="env-flap">
+        <div class="env-flap">
           <div class="env-flap-inner"></div>
           <div class="env-wax-seal"><span>M&A</span></div>
         </div>
-        <div class="env-letter" id="env-letter">
+        <div class="env-letter">
           <p class="letter-script">Максим</p>
           <p class="letter-amp">&</p>
           <p class="letter-script">Анастасия</p>
@@ -45,17 +42,17 @@
     </div>
     <button class="env-btn" id="env-btn" onclick="openEnvelope()">
       <span>Открыть приглашение</span>
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M8 3L13 8L8 13M3 8H13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <path d="M8 3L13 8L8 13M3 8H13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
     <p class="env-date-hint">19 сентября 2026</p>
   </div>
 
-  <!-- ====== MAIN SITE ====== -->
+  <!-- ====== ОСНОВНОЙ САЙТ ====== -->
   <div class="main-site" id="main-site">
 
-    <!-- ══ СЛАЙД 1: ГЕРОЙ ══ -->
+    <!-- ══ 1. ГЕРОЙ ══ -->
     <section class="slide slide-hero">
       <div class="stars-bg">
         <span class="star s1">✦</span><span class="star s2">✦</span>
@@ -64,9 +61,12 @@
       <div class="lace-divider">❧ ✿ ❧</div>
       <p class="label-script">Наша история</p>
       <h1 class="hero-names">МАКСИМ<br><span class="amp">&</span><br>АНАСТАСИЯ</h1>
-      <div class="hero-photo-frame">
+
+      <!-- Полароид: замените содержимое на <img src="photo-couple.jpg" ...> -->
+      <div class="hero-photo-frame" data-date="19 сентября 2026">
         <div class="hero-photo-placeholder"><span>Ваше фото</span></div>
       </div>
+
       <p class="hero-tagline">День, о котором<br>мы мечтали</p>
       <p class="hero-text">Дорогие, мы приглашаем вас разделить с нами самое важное «да» в нашей жизни — день нашей свадьбы</p>
       <div class="divider-star">✦</div>
@@ -87,21 +87,18 @@
       <div class="lace-divider" style="margin-top:28px">❧ ✿ ❧</div>
     </section>
 
-    <!-- соединитель -->
     <div class="slide-connector"><span class="connector-heart">♥</span></div>
 
-    <!-- ══ СЛАЙД 2: МЕСТО ══ -->
+    <!-- ══ 2. МЕСТО ══ -->
     <section class="slide slide-venue">
-      <div class="stars-bg">
-        <span class="star s2">✦</span><span class="star s4">✦</span>
-      </div>
+      <div class="stars-bg"><span class="star s2">✦</span><span class="star s4">✦</span></div>
       <div class="lace-divider">❧ ✿ ❧</div>
       <h2 class="slide-title">Место<br>проведения</h2>
       <div class="venue-card">
         <p class="venue-type">ресторан</p>
         <p class="venue-name">«Терраса»</p>
         <p class="venue-addr">по адресу<br>ул. Садовая, 12</p>
-        <a class="btn-route" href="https://yandex.ru/maps/?text=ул.+Садовая+12" target="_blank">построить маршрут</a>
+        <a class="btn-route" href="https://yandex.ru/maps/?text=ул.+Садовая+12" target="_blank">Построить маршрут</a>
         <div class="venue-photo-placeholder"><span>Фото места</span></div>
       </div>
       <p class="venue-desc">Мы выбрали это место не случайно — оно наполнено особенной атмосферой и станет частью наших самых тёплых воспоминаний</p>
@@ -127,20 +124,17 @@
         <div class="tl-item">
           <span class="tl-time">18:30</span>
           <div class="tl-dot"></div>
-          <div class="tl-content"><strong>Свадебный банкет</strong><span>Ресторан «Терраса» — ужин, танцы, воспоминания</span></div>
+          <div class="tl-content"><strong>Свадебный банкет</strong><span>Ужин, танцы, воспоминания</span></div>
         </div>
       </div>
       <div class="lace-divider" style="margin-top:16px">❧ ✿ ❧</div>
     </section>
 
-    <!-- соединитель -->
     <div class="slide-connector"><span class="connector-heart">♥</span></div>
 
-    <!-- ══ СЛАЙД 3: ДРЕСС-КОД ══ -->
+    <!-- ══ 3. ДРЕСС-КОД ══ -->
     <section class="slide slide-dresscode">
-      <div class="stars-bg">
-        <span class="star s1">✦</span><span class="star s3">✦</span>
-      </div>
+      <div class="stars-bg"><span class="star s1">✦</span><span class="star s3">✦</span></div>
       <div class="lace-divider">❧ ✿ ❧</div>
       <h2 class="slide-title">Дресс – код</h2>
       <p class="dresscode-text">Дорогие, мы очень старались сделать этот день особенным и красивым. Будем рады, если вы поддержите атмосферу, выбрав наряды в цветах нашей свадьбы</p>
@@ -150,10 +144,9 @@
       <div class="lace-divider" style="margin-top:28px">❧ ✿ ❧</div>
     </section>
 
-    <!-- соединитель -->
     <div class="slide-connector"><span class="connector-heart">♥</span></div>
 
-    <!-- ══ СЛАЙД 4: ГАЛЕРЕЯ ══ -->
+    <!-- ══ 4. ГАЛЕРЕЯ ══ -->
     <section class="slide slide-gallery">
       <div class="stars-bg">
         <span class="star s1">✦</span><span class="star s2">✦</span>
@@ -162,36 +155,19 @@
       <div class="lace-divider">❧ ✿ ❧</div>
       <p class="label-script">наши моменты</p>
       <h2 class="slide-title">Галерея<br>воспоминаний</h2>
-      <p class="gallery-intro">Каждый кадр — маленькая история о нас. Листайте и улыбайтесь вместе с нами ♥</p>
-
+      <p class="gallery-intro">Каждый кадр — маленькая история о нас. Листайте и улыбайтесь ♥</p>
       <div class="gallery-slider" id="gallery-slider">
-        <!-- Стрелки -->
         <button class="gallery-arrow prev" onclick="galleryMove(-1)">‹</button>
         <button class="gallery-arrow next" onclick="galleryMove(1)">›</button>
-        <!-- Фото (добавьте свои) -->
         <div class="gallery-track" id="gallery-track">
-          <div class="gallery-slide">
-            <div class="gallery-placeholder"><span>Фото 1</span></div>
-          </div>
-          <div class="gallery-slide">
-            <div class="gallery-placeholder"><span>Фото 2</span></div>
-          </div>
-          <div class="gallery-slide">
-            <div class="gallery-placeholder"><span>Фото 3</span></div>
-          </div>
-          <div class="gallery-slide">
-            <div class="gallery-placeholder"><span>Фото 4</span></div>
-          </div>
-          <div class="gallery-slide">
-            <div class="gallery-placeholder"><span>Фото 5</span></div>
-          </div>
+          <div class="gallery-slide"><div class="gallery-placeholder"><span>Фото 1</span></div></div>
+          <div class="gallery-slide"><div class="gallery-placeholder"><span>Фото 2</span></div></div>
+          <div class="gallery-slide"><div class="gallery-placeholder"><span>Фото 3</span></div></div>
+          <div class="gallery-slide"><div class="gallery-placeholder"><span>Фото 4</span></div></div>
+          <div class="gallery-slide"><div class="gallery-placeholder"><span>Фото 5</span></div></div>
         </div>
       </div>
-
-      <!-- Подписи к фото — редактируйте под свои -->
       <p class="gallery-caption" id="gallery-caption">Наша первая встреча</p>
-
-      <!-- Точки -->
       <div class="gallery-dots" id="gallery-dots">
         <div class="gallery-dot active" onclick="galleryGoTo(0)"></div>
         <div class="gallery-dot" onclick="galleryGoTo(1)"></div>
@@ -202,10 +178,9 @@
       <div class="lace-divider" style="margin-top:28px">❧ ✿ ❧</div>
     </section>
 
-    <!-- соединитель -->
     <div class="slide-connector"><span class="connector-heart">♥</span></div>
 
-    <!-- ══ СЛАЙД 5: ПОЖЕЛАНИЯ ══ -->
+    <!-- ══ 5. ПОЖЕЛАНИЯ + ОТСЧЁТ ══ -->
     <section class="slide slide-wishes">
       <div class="stars-bg">
         <span class="star s1">✦</span><span class="star s2">✦</span>
@@ -215,33 +190,20 @@
       <p class="label-script">от всего сердца</p>
       <h2 class="slide-title">Наши пожелания</h2>
       <p class="wishes-intro">Дорогие гости, мы хотим поделиться с вами словами, которые идут прямо из сердца</p>
-
-      <!-- РЕДАКТИРУЙТЕ КАРТОЧКИ ПОД СЕБЯ -->
       <div class="wishes-list">
         <div class="wish-card">
           <p>Приходите с открытым сердцем и готовностью смеяться, танцевать и создавать воспоминания, которые останутся с нами навсегда</p>
-          <div class="wish-card-footer">
-            <div class="wish-card-line"></div>
-            <span class="wish-card-from">Максим & Анастасия</span>
-          </div>
+          <div class="wish-card-footer"><div class="wish-card-line"></div><span class="wish-card-from">Максим & Анастасия</span></div>
         </div>
         <div class="wish-card">
-          <p>Ваше присутствие — лучший подарок для нас. Мы счастливы, что именно вы будете рядом в этот особенный день</p>
-          <div class="wish-card-footer">
-            <div class="wish-card-line"></div>
-            <span class="wish-card-from">С любовью</span>
-          </div>
+          <p>Ваше присутствие — лучший подарок. Мы счастливы, что именно вы будете рядом в этот особенный день</p>
+          <div class="wish-card-footer"><div class="wish-card-line"></div><span class="wish-card-from">С любовью</span></div>
         </div>
         <div class="wish-card">
           <p>Пусть этот вечер станет для вас таким же волшебным, как он является для нас. Спасибо, что вы есть в нашей жизни</p>
-          <div class="wish-card-footer">
-            <div class="wish-card-line"></div>
-            <span class="wish-card-from">Максим & Анастасия</span>
-          </div>
+          <div class="wish-card-footer"><div class="wish-card-line"></div><span class="wish-card-from">Максим & Анастасия</span></div>
         </div>
       </div>
-
-      <!-- Обратный отсчёт -->
       <div class="divider-star">✦</div>
       <p class="label-script" style="text-align:center">до свадьбы</p>
       <h2 class="slide-title" style="margin-top:4px">Совсем скоро</h2>
@@ -258,14 +220,11 @@
       <div class="lace-divider" style="margin-top:28px">❧ ✿ ❧</div>
     </section>
 
-    <!-- соединитель -->
     <div class="slide-connector"><span class="connector-heart">♥</span></div>
 
-    <!-- ══ СЛАЙД 6: АНКЕТА ══ -->
+    <!-- ══ 6. АНКЕТА ══ -->
     <section class="slide slide-rsvp">
-      <div class="stars-bg">
-        <span class="star s2">✦</span><span class="star s4">✦</span>
-      </div>
+      <div class="stars-bg"><span class="star s2">✦</span><span class="star s4">✦</span></div>
       <div class="lace-divider">❧ ✿ ❧</div>
       <p class="label-script">Анкета гостя</p>
       <h2 class="slide-title">Подтвердите<br>участие</h2>
@@ -296,8 +255,16 @@
           </div>
         </div>
         <div class="form-group">
-          <label>Предпочтения в еде / аллергии</label>
-          <textarea id="f-food" placeholder="Например: вегетарианское меню, аллергия на орехи..."></textarea>
+          <label>Какой алкоголь предпочитаете?</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Игристое" /><span>🥂 Игристое</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Вино" /><span>🍷 Вино</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Водка" /><span>🥃 Водка</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Пиво" /><span>🍺 Пиво</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Виски" /><span>🥃 Виски</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Безалкогольные" /><span>🧃 Безалкогольные напитки</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Без разницы" /><span>✨ Без разницы</span></label>
+          </div>
         </div>
         <div class="form-group">
           <label>Пожелание молодожёнам 💌</label>
@@ -306,17 +273,36 @@
         <button class="btn-submit" onclick="submitForm()">Отправить анкету</button>
         <p class="form-note">Данные сохраняются в таблицу организаторов</p>
       </div>
-
-      <div class="success-msg" id="success-msg" style="display:none">
-        <div class="success-icon">✦</div>
-        <h3>Спасибо!</h3>
-        <p>Ваш ответ принят. Ждём вас на нашем празднике!</p>
-        <p class="label-script" style="margin-top:16px">Максим & Анастасия</p>
-      </div>
       <div class="lace-divider" style="margin-top:36px">❧ ✿ ❧</div>
     </section>
 
   </div><!-- /main-site -->
+
+  <!-- ====== ФИНАЛЬНОЕ ОКНО ====== -->
+  <div class="success-overlay" id="success-overlay">
+    <div class="success-modal">
+      <div class="success-modal-top">
+        <span class="success-script">Ждём вас!</span>
+        <p class="success-tagline">с любовью, ваши</p>
+        <p class="success-names">Максим &amp; Анастасия</p>
+      </div>
+
+      <!-- Полароид с фото -->
+      <div style="display:flex;justify-content:center;padding:0 28px;">
+        <div class="success-polaroid">
+          <!-- Замените на свою фотографию: -->
+          <img src="success-photo.jpg" alt="Максим и Анастасия"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="success-photo-ph" style="display:none"><span>Фото пары</span></div>
+          <span class="success-polaroid-date">19 сентября 2026</span>
+        </div>
+      </div>
+
+      <div class="success-modal-bottom">
+        <button class="success-close" onclick="closeSuccess()">Закрыть</button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
