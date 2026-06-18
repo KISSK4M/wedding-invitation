@@ -600,7 +600,7 @@ body {
 }
 .env-names-top {
   font-family: var(--font-display); font-size: 28px; font-weight: 600;
-  letter-spacing: 0.05em; text-transform: uppercase;
+  letter-spacing: 0.05em; text-transform: none;
   color: var(--black); text-align: center;
   margin-bottom: 44px;
 }
