@@ -355,7 +355,7 @@ body {
 }
 
 .gallery-caption {
-  font-family: var(--font-display);
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-size: 14px;
   color: var(--black-lt);
