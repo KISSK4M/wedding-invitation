@@ -112,7 +112,9 @@ window.submitForm = async function() {
   const name   = document.getElementById('f-name').value.trim();
   const phone  = document.getElementById('f-phone').value.trim();
   const attend = document.querySelector('input[name="attend"]:checked');
-  const wish   = document.getElementById('f-wish').value.trim();
+  const wish      = document.getElementById('f-wish').value.trim();
+  const transportEl = document.querySelector('input[name="transport"]:checked');
+  const transport    = transportEl ? transportEl.value : 'не указано';
 
   // Собираем выбранный алкоголь
   const alcoholBoxes = document.querySelectorAll('input[name="alcohol"]:checked');
@@ -131,6 +133,7 @@ window.submitForm = async function() {
     attend: attend.value,
     guests: guestCount,
     alcohol,
+    transport,
     wish,
     timestamp: new Date().toLocaleString('ru-RU'),
   };

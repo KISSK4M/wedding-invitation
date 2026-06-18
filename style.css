@@ -1,3 +1,14 @@
+/* ===== ANASTASIA SCRIPT FONT ===== */
+/* Скачайте AnastasiaScript.ttf и положите рядом с index.html */
+@font-face {
+  font-family: 'AnastasiaScript';
+  src: url('AnastasiaScript.ttf') format('truetype'),
+       url('AnastasiaScript.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -9,19 +20,19 @@
   --gold-lt:  #B0A080;
   --beige:    #D4C8B0;      /* граница */
   --milk:     #F8F6F2;      /* белый с оттенком */
-  --black:    #1A1A1A;      /* почти чёрный текст */
+  --black:    #2C1810;      /* black chocolate */      /* почти чёрный текст */
   --black-lt: #5A5550;      /* серо-чёрный вспомогательный */
   --white:    #FFFFFF;
   --red:      #8B1A1A;      /* бордо — только для акцентов (как на примере) */
 
   /* алиасы для совместимости со старым кодом */
-  --olive:    #1A1A1A;
+  --olive:    #2C1810;
   --olive-lt: #5A5550;
   --khaki:    #8C7B5E;
-  --text:     #1A1A1A;
+  --text:     #2C1810;
   --text-lt:  #5A5550;
 
-  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'AnastasiaScript', 'Cormorant Garamond', Georgia, serif;
   --font-body:    'Jost', system-ui, sans-serif;
   --max-w: 430px;
 }
@@ -72,21 +83,6 @@ body {
 .s3 { bottom: 24px; left: 24px; font-size: 8px; }
 .s4 { bottom: 24px; right: 24px; font-size: 8px; }
 
-/* Декоративные линии-завитки (SVG inline через before/after) */
-.slide-hero::before {
-  content: '';
-  position: absolute;
-  top: 0; right: -10px;
-  width: 120px; height: 80px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80'%3E%3Cpath d='M110,5 Q80,20 60,40 Q40,55 10,70' fill='none' stroke='%238C7B5E' stroke-width='1' opacity='0.35'/%3E%3C/svg%3E") no-repeat center/contain;
-}
-.slide-hero::after {
-  content: '';
-  position: absolute;
-  top: 0; left: -10px;
-  width: 120px; height: 80px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80'%3E%3Cpath d='M10,5 Q40,20 60,40 Q80,55 110,70' fill='none' stroke='%238C7B5E' stroke-width='1' opacity='0.35'/%3E%3C/svg%3E") no-repeat center/contain;
-}
 
 /* ===== CONNECTOR ===== */
 .slide-connector {
@@ -121,7 +117,7 @@ body {
 
 .slide-title {
   font-family: var(--font-display);
-  font-weight: 600; font-size: 34px; line-height: 1.15;
+  font-weight: 600; font-size: 40px; line-height: 1.15;
   letter-spacing: 0.04em; text-align: center;
   color: var(--black); margin-bottom: 20px;
   text-transform: uppercase;
@@ -135,7 +131,7 @@ body {
 /* ===== HERO ===== */
 .hero-names {
   font-family: var(--font-display);
-  font-weight: 700; font-size: 40px; line-height: 1.05;
+  font-weight: 700; font-size: 46px; line-height: 1.05;
   letter-spacing: 0.07em; text-align: center;
   color: var(--black); margin: 12px 0 24px;
   text-transform: uppercase;
@@ -449,7 +445,7 @@ body {
 .success-overlay.show { display: flex; }
 
 .success-modal {
-  background: #8B1A1A;          /* тёмно-бордовый фон как на примере */
+  background: var(--black);     /* black chocolate верх модала */
   border-radius: 4px;
   width: 100%; max-width: 360px;
   overflow: hidden;
@@ -473,7 +469,7 @@ body {
 }
 .success-tagline {
   font-size: 12px; font-weight: 300; letter-spacing: 0.1em;
-  text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 4px;
+  text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 4px;
 }
 .success-names {
   font-family: var(--font-display); font-weight: 700; font-size: 30px;
@@ -506,7 +502,7 @@ body {
 }
 
 .success-modal-bottom {
-  background: #F4F1EC;
+  background: var(--cream);
   padding: 20px 28px 28px;
   text-align: center;
 }
