@@ -278,92 +278,118 @@ body {
 
 /* ===== GALLERY ===== */
 .gallery-intro {
-  font-size: 14px; font-weight: 300; line-height: 1.7;
-  text-align: center; color: var(--black-lt);
-  max-width: 290px; margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    text-align: center;
+    color: var(--black-lt);
+    max-width: 290px;
+    margin-bottom: 24px;
 }
 
 .gallery-slider {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  border-radius: 2px;
-  touch-action: pan-y;
-  margin-bottom: 16px; /* ← ДОБАВЛЕНО */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    touch-action: pan-y;
+    margin-bottom: 16px;
 }
 
 .gallery-track {
-  display: flex;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-slide {
-  min-width: 100%;
-  aspect-ratio: 4/3;
-  overflow: hidden;
-  border: 8px solid var(--white);
-  border-bottom-width: 32px;
-  box-shadow: 0 4px 20px rgba(26, 26, 26, 0.1);
-  border-radius: 2px;
-  flex-shrink: 0; /* ← ДОБАВЛЕНО */
+    min-width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border: 8px solid var(--white);
+    border-bottom-width: 32px;
+    box-shadow: 0 4px 20px rgba(26, 26, 26, 0.1);
+    border-radius: 2px;
+    flex-shrink: 0;
 }
 
 .gallery-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .gallery-placeholder {
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, var(--cream), var(--accent));
-  display: flex; align-items: center; justify-content: center;
-  color: var(--black); font-size: 13px; font-weight: 300; letter-spacing: 0.04em;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--cream), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
 }
 
 .gallery-arrow {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 36px; height: 36px; background: rgba(255,255,255,0.92);
-  border: 1px solid var(--accent); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; z-index: 5; font-size: 18px; color: var(--black);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); -webkit-tap-highlight-color: transparent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    font-size: 18px;
+    color: var(--black);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    -webkit-tap-highlight-color: transparent;
 }
 
-.gallery-arrow.prev { left: 8px; }
-.gallery-arrow.next { right: 8px; }
+.gallery-arrow.prev {
+    left: 8px;
+}
+
+.gallery-arrow.next {
+    right: 8px;
+}
 
 .gallery-dots {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 12px; /* ← ИЗМЕНЕНО с 14px на 12px */
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 14px;
 }
 
 .gallery-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  transition: background 0.2s, transform 0.2s;
-  cursor: pointer;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
 }
 
 .gallery-dot.active {
-  background: var(--black);
-  transform: scale(1.3);
+    background: var(--black);
+    transform: scale(1.3);
 }
 
 .gallery-caption {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: 14px;
-  color: var(--black-lt);
-  text-align: center;
-  margin-top: 8px; /* ← ИЗМЕНЕНО с 10px на 8px */
-  min-height: 30px; /* ← УВЕЛИЧЕНО с 20px на 30px */
-  padding: 0 12px; /* ← ДОБАВЛЕНО */
-  width: 100%;
+    font-family: 'Cormorant Garamond', Georgia, serif; /* ← ТОЛЬКО ШРИФТ */
+    font-style: italic;
+    font-size: 14px;
+    color: var(--black-lt);
+    text-align: center;
+    margin-top: 10px;
+    min-height: 20px;
+}
 }
 /* ===== WISHES ===== */
 .wishes-intro {
