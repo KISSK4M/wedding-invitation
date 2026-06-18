@@ -588,13 +588,23 @@ body {
 }
 
 .env-letter {
-  position: absolute; bottom: 10px; left: 50%;
-  transform: translateX(-50%);
-  width: 220px; background: var(--white);
-  border: 1px solid rgba(216,208,196,0.5); border-radius: 2px;
-  padding: 16px 20px; text-align: center; z-index: 10;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 220px;
+  max-width: 90%;
+  background: var(--white);
+  border: 1px solid rgba(216,208,196,0.5);
+  border-radius: 2px;
+  padding: 16px 20px;
+  text-align: center;
+  z-index: 10;
   transition: transform 0.7s cubic-bezier(0.4,0,0.2,1) 0.25s, opacity 0.4s ease 0.25s;
-  opacity: 0; pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
+}
 }
 .envelope.opened .env-letter { transform: translateX(-50%) translateY(-150px); opacity: 1; }
 .letter-script {
