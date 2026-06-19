@@ -293,7 +293,6 @@ body {
     overflow: hidden;
     border-radius: 2px;
     touch-action: pan-y;
-    margin-bottom: 16px;
 }
 
 .gallery-track {
@@ -305,9 +304,8 @@ body {
     min-width: 100%;
     aspect-ratio: 4/3;
     overflow: hidden;
-    border: 8px solid var(--white);
-    border-bottom-width: 32px;
-    box-shadow: 0 4px 20px rgba(26, 26, 26, 0.1);
+    border: none; /* ← УБРАЛИ РАМКУ */
+    box-shadow: none; /* ← УБРАЛИ ТЕНЬ */
     border-radius: 2px;
     flex-shrink: 0;
 }
@@ -382,14 +380,13 @@ body {
 }
 
 .gallery-caption {
-    font-family: 'Cormorant Garamond', Georgia, serif; /* ← ТОЛЬКО ШРИФТ */
+    font-family: 'Cormorant Garamond', Georgia, serif; /* ← ТОЛЬКО ШРИФТ ПОМЕНЯЛИ */
     font-style: italic;
     font-size: 14px;
     color: var(--black-lt);
     text-align: center;
     margin-top: 10px;
     min-height: 20px;
-}
 }
 /* ===== WISHES ===== */
 .wishes-intro {
