@@ -118,7 +118,7 @@ body {
 /* ===== HERO ===== */
 .hero-names {
   font-family: var(--font-display);
-  font-weight: 700; font-size: 46px; line-height: 1.05;
+  font-weight: 700; font-size: 54px; line-height: 1.05;
   letter-spacing: 0.07em; text-align: center;
   color: var(--black); margin: 12px 0 24px;
   text-transform: none;
@@ -380,7 +380,7 @@ body {
 }
 
 .gallery-caption {
-    font-family: 'Cormorant Garamond', Georgia, serif; /* ← ТОЛЬКО ШРИФТ ПОМЕНЯЛИ */
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-style: italic;
     font-size: 14px;
     color: var(--black-lt);
@@ -405,7 +405,7 @@ body {
   font-family: var(--font-display); font-size: 28px; color: var(--accent); line-height: 1;
 }
 .wish-card p {
-  font-family: var(--font-display); font-size: 16px; font-weight: 300;
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 17px; font-weight: 300;
   font-style: italic; line-height: 1.65; color: var(--black); padding-left: 18px;
 }
 .wish-card-footer { margin-top: 12px; display: flex; align-items: center; gap: 8px; padding-left: 18px; }
@@ -656,16 +656,16 @@ body {
 .env-wax-seal span {
   font-family: var(--font-display); font-size: 9px;
   font-style: italic; color: var(--white); letter-spacing: 0.03em;
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; text-align: center; line-height: 1;
 }
 
 .env-letter {
   position: absolute;
   bottom: 10px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
   width: 220px;
-  max-width: 90%;
   background: var(--white);
   border: 1px solid rgba(216,208,196,0.5);
   border-radius: 2px;
@@ -675,7 +675,6 @@ body {
   transition: transform 0.7s cubic-bezier(0.4,0,0.2,1) 0.25s, opacity 0.4s ease 0.25s;
   opacity: 0;
   pointer-events: none;
-}
 }
 .envelope.opened .env-letter { transform: translateX(-50%) translateY(-150px); opacity: 1; }
 .letter-script {

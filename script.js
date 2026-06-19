@@ -187,9 +187,9 @@ window.closeSuccess = function() {
     const msg = document.createElement('div');
     msg.style.cssText = 'text-align:center;padding:32px 0;';
     msg.innerHTML = `
-      <div style="font-size:24px;color:#8C7B5E;margin-bottom:12px;">✦</div>
-      <p style="font-family:Cormorant Garamond,serif;font-size:22px;font-style:italic;color:#1A1A1A;margin-bottom:8px;">Спасибо!</p>
-      <p style="font-size:13px;font-weight:300;color:#5A5550;line-height:1.7;">Ваш ответ принят.<br>Ждём вас 19 сентября!</p>
+      <div style="font-size:24px;color:#9A9488;margin-bottom:12px;">✦</div>
+      <p style="font-family:Cormorant Garamond,serif;font-size:22px;font-style:italic;color:#1C1C1C;margin-bottom:8px;">Спасибо!</p>
+      <p style="font-size:13px;font-weight:300;color:#7A7670;line-height:1.7;">Ваш ответ принят.<br>Ждём вас 19 сентября!</p>
     `;
     rsvpSection.appendChild(msg);
   }
