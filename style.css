@@ -289,6 +289,7 @@ body {
 
 .gallery-slider {
     width: 100%;
+    max-width: var(--max-w);
     position: relative;
     overflow: hidden;
     border-radius: 2px;
@@ -297,17 +298,29 @@ body {
 
 .gallery-track {
     display: flex;
+    width: 100%;
+    will-change: transform;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-slide {
     min-width: 100%;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    border: none; /* ← УБРАЛИ РАМКУ */
-    box-shadow: none; /* ← УБРАЛИ ТЕНЬ */
-    border-radius: 2px;
+    width: 100%;
     flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 2px;
+    position: relative;
+}
+.gallery-slide::before {
+    content: '';
+    display: block;
+    padding-top: 75%; /* 4:3 ratio */
+}
+.gallery-slide img,
+.gallery-slide .gallery-placeholder {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
 }
 
 .gallery-slide img {
@@ -315,6 +328,10 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+/* desktop: limit gallery height */
+@media (min-width: 480px) {
+    .gallery-slide::before { padding-top: 66%; }
 }
 
 .gallery-placeholder {
@@ -448,26 +465,36 @@ body {
 
 .radio-group { display: flex; flex-direction: column; gap: 10px; }
 .radio-label {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 12px;
   font-size: 14px; font-weight: 300; color: var(--black);
   cursor: pointer; text-transform: none; letter-spacing: 0;
+  line-height: 1.4;
 }
 .radio-label input[type="radio"] {
-  width: 18px; height: 18px; border: 1.5px solid var(--accent);
-  border-radius: 50%; background: var(--white); accent-color: var(--black); flex-shrink: 0;
+  width: 20px; height: 20px; min-width: 20px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%; background: var(--white);
+  accent-color: var(--black); flex-shrink: 0;
+  margin-top: 0;
 }
 
 .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
 .checkbox-label {
   display: flex; align-items: center; gap: 12px;
-  font-size: 14px; font-weight: 300; color: var(--black); cursor: pointer;
+  font-size: 14px; font-weight: 300; color: var(--black);
+  cursor: pointer; line-height: 1.4;
+}
+.checkbox-label span {
+  display: flex; align-items: center; line-height: 1.4;
 }
 .checkbox-label input[type="checkbox"] {
-  width: 18px; height: 18px; border: 1.5px solid var(--accent);
+  width: 20px; height: 20px; min-width: 20px;
+  border: 1.5px solid var(--accent);
   border-radius: 2px; accent-color: var(--black); flex-shrink: 0;
   -webkit-appearance: none; appearance: none;
   background: var(--white); position: relative; cursor: pointer;
   transition: background 0.15s, border-color 0.15s;
+  margin-top: 0;
 }
 .checkbox-label input[type="checkbox"]:checked {
   background: var(--black); border-color: var(--black);
