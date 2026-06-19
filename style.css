@@ -471,11 +471,12 @@ body {
   line-height: 1.4;
 }
 .radio-label input[type="radio"] {
-  width: 20px; height: 20px; min-width: 20px;
+  width: 18px; height: 18px; min-width: 18px;
   border: 1.5px solid var(--accent);
   border-radius: 50%; background: var(--white);
   accent-color: var(--black); flex-shrink: 0;
-  margin-top: 0;
+  margin: 0; padding: 0; vertical-align: middle;
+  align-self: center;
 }
 
 .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
@@ -485,16 +486,17 @@ body {
   cursor: pointer; line-height: 1.4;
 }
 .checkbox-label span {
-  display: flex; align-items: center; line-height: 1.4;
+  line-height: 1.4;
+  display: inline;
 }
 .checkbox-label input[type="checkbox"] {
-  width: 20px; height: 20px; min-width: 20px;
+  width: 18px; height: 18px; min-width: 18px;
   border: 1.5px solid var(--accent);
   border-radius: 2px; accent-color: var(--black); flex-shrink: 0;
   -webkit-appearance: none; appearance: none;
   background: var(--white); position: relative; cursor: pointer;
   transition: background 0.15s, border-color 0.15s;
-  margin-top: 0;
+  margin: 0; padding: 0; align-self: center;
 }
 .checkbox-label input[type="checkbox"]:checked {
   background: var(--black); border-color: var(--black);
@@ -573,7 +575,7 @@ body {
 }
 .success-names {
   font-family: var(--font-display); font-weight: 700; font-size: 30px;
-  letter-spacing: 0.06em; text-transform: uppercase;
+  letter-spacing: 0.03em; text-transform: none;
   color: var(--white); line-height: 1.1;
 }
 
