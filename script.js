@@ -105,24 +105,44 @@ window.changeCount = function(delta) {
 };
 
 
+
+// ── PILL BUTTONS ───────────────────────────────────────────
+
+// Одиночный выбор (attend, transport)
+window.selectPill = function(btn, field, value) {
+  const group = btn.closest('.pill-group');
+  group.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  const hidden = document.getElementById('f-' + field);
+  if (hidden) hidden.value = value;
+};
+
+// Мультивыбор (alcohol)
+window.togglePill = function(btn) {
+  btn.classList.toggle('selected');
+};
+
 // ── FORM SUBMIT ────────────────────────────────────────────
 // Замените на ссылку вашего Google Apps Script
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzQOrY3mg1oA44B2aVub6dbazp-t59fxygubtfwJ6VOsC5FCK0G4FoIgpEYNI_MJVT0/exec';
+const SCRIPT_URL = 'ВСТАВЬТЕ_ССЫЛКУ_GOOGLE_APPS_SCRIPT_СЮДА';
 
 window.submitForm = async function() {
   const name   = document.getElementById('f-name').value.trim();
   const phone  = document.getElementById('f-phone').value.trim();
-  const attend = document.querySelector('input[name="attend"]:checked');
-  const wish      = document.getElementById('f-wish').value.trim();
-  const transportEl = document.querySelector('input[name="transport"]:checked');
-  const transport    = transportEl ? transportEl.value : 'не указано';
+  // Читаем pill-кнопки
+  const attendVal   = document.getElementById('f-attend') ? document.getElementById('f-attend').value : '';
+  const transportVal= document.getElementById('f-transport') ? document.getElementById('f-transport').value : '';
+  const wish        = document.getElementById('f-wish').value.trim();
 
-  // Собираем выбранный алкоголь
-  const alcoholBoxes = document.querySelectorAll('input[name="alcohol"]:checked');
-  const alcohol = Array.from(alcoholBoxes).map(cb => cb.value).join(', ') || 'не указано';
+  // Собираем алкоголь из pill-multi
+  const selectedAlcohol = document.querySelectorAll('#alcohol-group .pill-btn-multi.selected');
+  const alcohol = Array.from(selectedAlcohol).map(b => b.textContent.trim()).join(', ') || 'не указано';
 
-  if (!name)   { alert('Пожалуйста, введите ваше имя'); return; }
-  if (!attend) { alert('Пожалуйста, выберите, придёте ли вы'); return; }
+  const attend = attendVal;
+  const transport = transportVal || 'не указано';
+
+  if (!name)    { alert('Пожалуйста, введите ваше имя'); return; }
+  if (!attendVal) { alert('Пожалуйста, выберите, придёте ли вы'); return; }
 
   const btn = document.querySelector('.btn-submit');
   btn.disabled = true;
@@ -131,7 +151,7 @@ window.submitForm = async function() {
   const payload = {
     name,
     phone,
-    attend: attend.value,
+    attend: attend,
     guests: guestCount,
     alcohol,
     transport,

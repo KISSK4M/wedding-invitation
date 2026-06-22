@@ -242,28 +242,30 @@
         </div>
         <div class="form-group">
           <label>Придёте на свадьбу?</label>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="attend" value="Да, приду!" /> Да, с радостью!</label>
-            <label class="radio-label"><input type="radio" name="attend" value="Не смогу" /> К сожалению, не смогу</label>
+          <div class="pill-group" id="attend-group">
+            <button type="button" class="pill-btn" onclick="selectPill(this,'attend','Да, приду!')">Да, с радостью!</button>
+            <button type="button" class="pill-btn" onclick="selectPill(this,'attend','Не смогу')">К сожалению, не смогу</button>
           </div>
+          <input type="hidden" id="f-attend" name="attend" value="">
         </div>
         <div class="form-group">
           <label>Какой алкоголь предпочитаете?</label>
-          <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Игристое" /><span>Игристое</span></label>
-            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Вино белое" /><span>Вино белое</span></label>
-            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Вино красное" /><span>Вино красное</span></label>
-            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Водка" /><span>Водка</span></label>
-            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Безалкогольные" /><span>Безалкогольные напитки</span></label>
-            <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Без разницы" /><span>Без разницы</span></label>
+          <div class="pill-group-multi" id="alcohol-group">
+            <button type="button" class="pill-btn-multi" onclick="togglePill(this)">Игристое</button>
+            <button type="button" class="pill-btn-multi" onclick="togglePill(this)">Вино белое</button>
+            <button type="button" class="pill-btn-multi" onclick="togglePill(this)">Вино красное</button>
+            <button type="button" class="pill-btn-multi" onclick="togglePill(this)">Водка</button>
+            <button type="button" class="pill-btn-multi" onclick="togglePill(this)">Безалкогольные напитки</button>
+            <button type="button" class="pill-btn-multi" onclick="togglePill(this)">Без разницы</button>
           </div>
         </div>
         <div class="form-group">
           <label>Как планируете добираться?</label>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="transport" value="Самостоятельно" /> Самостоятельно</label>
-            <label class="radio-label"><input type="radio" name="transport" value="Нужен трансфер" /> Нужен трансфер</label>
+          <div class="pill-group" id="transport-group">
+            <button type="button" class="pill-btn" onclick="selectPill(this,'transport','Самостоятельно')">Самостоятельно</button>
+            <button type="button" class="pill-btn" onclick="selectPill(this,'transport','Нужен трансфер')">Нужен трансфер</button>
           </div>
+          <input type="hidden" id="f-transport" name="transport" value="">
         </div>
                 <div class="form-group">
           <label>Пожелание молодожёнам</label>
