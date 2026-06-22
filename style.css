@@ -816,3 +816,107 @@ body {
 /* ===== MAIN SITE ===== */
 .main-site { opacity: 0; transition: opacity 0.8s ease; }
 .main-site.visible { opacity: 1; }
+
+/* ===== УВЕЛИЧЕНИЕ ВСЕХ ШРИФТОВ (КРОМЕ ЗАГОЛОВКОВ) ===== */
+
+/* Подзаголовки */
+.label-script {
+    font-size: 20px !important;
+}
+.label-script.small {
+    font-size: 15px !important;
+}
+
+/* Основной текст */
+.hero-text,
+.venue-desc,
+.dresscode-text,
+.rsvp-subtext,
+.gallery-intro,
+.wishes-intro {
+    font-size: 17px !important;
+}
+
+/* Подписи в галерее */
+.gallery-caption {
+    font-size: 17px !important;
+}
+
+/* Цифры таймера */
+.cd-num {
+    font-size: 44px !important;
+}
+
+/* Дата свадьбы */
+.hero-date {
+    font-size: 40px !important;
+}
+
+/* Имена в конверте */
+.letter-script {
+    font-size: 20px !important;
+}
+
+/* Текст в карточках пожеланий */
+.wish-card p {
+    font-size: 19px !important;
+}
+
+/* Подписи полей в анкете */
+.form-group label {
+    font-size: 14px !important;
+}
+
+/* Кнопки */
+.btn-submit,
+.env-btn,
+.success-close {
+    font-size: 15px !important;
+}
+
+/* Текст в финальном окне */
+.success-script {
+    font-size: 26px !important;
+}
+.success-tagline {
+    font-size: 14px !important;
+}
+.success-names {
+    font-size: 32px !important; /* чуть увеличу, чтобы было красиво */
+}
+
+/* Дата в конверте */
+.letter-date {
+    font-size: 14px !important;
+}
+
+/* Текст в анкете (поля ввода) */
+.form-group input,
+.form-group textarea,
+.form-group select {
+    font-size: 16px !important;
+}
+
+/* Кнопки-пилюли (выбор в анкете) */
+.pill-btn,
+.pill-btn-multi {
+    font-size: 15px !important;
+}
+
+/* Текст "Ждём вас!" в финальном окне */
+.success-script {
+    font-size: 26px !important;
+}
+
+/* Адаптив для телефонов (чуть поменьше) */
+@media (max-width: 480px) {
+    .label-script { font-size: 18px !important; }
+    .hero-text, .venue-desc, .dresscode-text, .rsvp-subtext, .gallery-intro, .wishes-intro {
+        font-size: 15px !important;
+    }
+    .cd-num { font-size: 38px !important; }
+    .hero-date { font-size: 34px !important; }
+    .wish-card p { font-size: 17px !important; }
+    .form-group label { font-size: 13px !important; }
+    .btn-submit, .env-btn { font-size: 14px !important; }
+}
