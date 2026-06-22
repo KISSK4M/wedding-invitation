@@ -124,7 +124,7 @@ window.togglePill = function(btn) {
 
 // ── FORM SUBMIT ────────────────────────────────────────────
 // Замените на ссылку вашего Google Apps Script
-const SCRIPT_URL = 'ВСТАВЬТЕ_ССЫЛКУ_GOOGLE_APPS_SCRIPT_СЮДА';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzQOrY3mg1oA44B2aVub6dbazp-t59fxygubtfwJ6VOsC5FCK0G4FoIgpEYNI_MJVT0/exec';
 
 window.submitForm = async function() {
   const name   = document.getElementById('f-name').value.trim();
