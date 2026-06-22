@@ -506,6 +506,37 @@ body {
   color: var(--white);
 }
 
+/* Мультивыбор — алкоголь */
+.pill-group-multi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pill-btn-multi {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: 1px solid var(--accent);
+  border-radius: 50px;
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--black);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  white-space: nowrap;
+}
+.pill-btn-multi.selected {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
 .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
 .checkbox-label {
   display: flex;
